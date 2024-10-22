@@ -11,19 +11,20 @@ app.use(cors())
 app.use(express.json());
 
 
-app.get("/books", async(req, res) => {
+app.get("/books/", async(req, res) => {
     try {
             const books = await Book.find({});
             res.status(200).json({
               sucess: true,
               data: books,
             });
+            res.send("Express on vercel")
           } catch (error) {
             console.error(`Error in fetch products : ${error.message}`);
           }
 })
 
-app.post("/books", async (req, res) => {
+app.post("/books/", async (req, res) => {
   const book = req.body;
 
   if (!book.name || !book.author || !book.price) {
