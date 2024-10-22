@@ -3,6 +3,8 @@ import { connectDB } from "./config/db.js";
 import dotenv from "dotenv";
 import cors from "cors"
 import Book from "./model/books.model.js";
+import serverless from "serverless-http";
+
 dotenv.config();
 const app = express();
 
@@ -10,19 +12,6 @@ app.use(cors())
 
 app.use(express.json());
 
-app.get("/", async (req, res) => {
-  try {
-    const books = await Book.find({});
-    res.status(200).json({
-      sucess: true,
-      data: books,
-    });
-    res.send("Express on vercel")
-  } catch (error) {
-    console.error(`Error in fetch products : ${error.message}`);
-  }
-  res.status(200).send("Express on vercel")
-})
 
 app.get("/books", async (req, res) => {
   try {
@@ -106,3 +95,5 @@ app.listen(5000, () => {
   connectDB();
   console.log("Server Started at : http://localhost:5000");
 });
+
+export const handler = serverless(app)
