@@ -6,7 +6,7 @@
     "@types/bun": "latest"
   },
   "scripts": {
-    "dev": "nodemon node backend/server.js"
+    "dev": "nodemon node backend/index.js"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

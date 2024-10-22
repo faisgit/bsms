@@ -1,8 +1,6 @@
 import express from "express";
 import { connectDB } from "./config/db.js";
 import dotenv from "dotenv";
-// import router from './routes/book_routes.js'
-// import bookRoutes from "./routes/book_routes.js"
 import cors from "cors"
 import Book from "./model/books.model.js";
 dotenv.config();
