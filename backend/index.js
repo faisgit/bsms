@@ -10,7 +10,17 @@ app.use(cors())
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  try {
+    const books = await Book.find({});
+    res.status(200).json({
+      sucess: true,
+      data: books,
+    });
+    res.send("Express on vercel")
+  } catch (error) {
+    console.error(`Error in fetch products : ${error.message}`);
+  }
   res.status(200).send("Express on vercel")
 })
 
