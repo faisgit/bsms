@@ -5,6 +5,9 @@
   "devDependencies": {
     "@types/bun": "latest"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "dev": "nodemon node backend/index.js"
   },
