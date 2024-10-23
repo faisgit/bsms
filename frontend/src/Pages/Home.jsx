@@ -10,7 +10,7 @@ function Home() {
   // data.map((e) => console.log(e))
   // console.log(data)
   return (
-    <div>
+    <div className=''>
       <Table data={data} />
     </div>
   )

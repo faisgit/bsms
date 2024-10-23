@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
+import Navbar from './components/Navbar'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -7,8 +8,11 @@ function App() {
   return (
     <>
      <div>
-        <h1 className=' font-bold  text-2xl text-center mt-10 font-sans'>Book Store Management System</h1>
+        <Navbar />
+        <div className='mt-20'>
+
         <Outlet />
+        </div>
      </div>
     </>
   )

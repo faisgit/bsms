@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDeleteData, useGetAllData } from "../../hooks/custom-hooks";
 
 function Table({ data }) {
   let id = 0;
+  const { deleteData } = useDeleteData()
+  const handleClick =  async (id) => {
+    if (id) {
+      await deleteData(id)
+      window.location.reload()
+    }
+  }
   return (
     <div className="overflow-x-auto">
       <table className="table table-xs">
@@ -17,18 +25,20 @@ function Table({ data }) {
         </thead>
         <tbody>
           {data.map((data) => {
-            id++
-            return(
-            <tr>
-              <th>{id}</th>
-              <td>{data.name}</td>
-              <td>{data.author}</td>
-              <td>{data.price}</td>
-              <td>
-                <Link to={`/delete/${data._id}`}>Delete</Link>
-              </td>
-            </tr>
-          )})}
+            id++;
+            return (
+              <tr key={data._id}>
+                <th>{id}</th>
+                <td>{data.name}</td>
+                <td>{data.author}</td>
+                <td>{data.price}</td>
+                <td>
+                  <button onClick={() => handleClick(data._id)}>Delete</button>
+                  <Link to={`upda`}></Link>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
