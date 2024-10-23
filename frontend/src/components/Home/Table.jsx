@@ -32,9 +32,10 @@ function Table({ data }) {
                 <td>{data.name}</td>
                 <td>{data.author}</td>
                 <td>{data.price}</td>
-                <td>
-                  <button onClick={() => handleClick(data._id)}>Delete</button>
-                  <Link to={`upda`}></Link>
+                <td className="flex gap-2">
+                  <button onClick={() => handleClick(data._id)} className="hover">Delete</button>
+                    |  
+                  <Link to={`update/${data._id}`} className=" hover:underline">Update</Link>
                 </td>
               </tr>
             );
