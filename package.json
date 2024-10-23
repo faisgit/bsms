@@ -5,8 +5,11 @@
   "devDependencies": {
     "@types/bun": "latest"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
-    "dev": "nodemon node backend/server.js"
+    "dev": "nodemon node backend/index.js"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
@@ -16,6 +19,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "mongoose": "^8.7.2",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "serverless-http": "^3.2.0"
   }
 }
