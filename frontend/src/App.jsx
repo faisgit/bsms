@@ -10,7 +10,6 @@ function App() {
      <div>
         <Navbar />
         <div className='mt-20'>
-
         <Outlet />
         </div>
      </div>

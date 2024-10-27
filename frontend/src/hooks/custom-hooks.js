@@ -60,17 +60,32 @@ export const useAddData = () => {
 }
 
 export const useGetDataById = () => {
-    const [data, setData] = useState(null)
-    const getDataById = async (id) => {
-        try {
-            const response = await fetch(`http://localhost:5000/${id}`,{
-                method : 'GET'
-            })
-            const result = response.json();
-            setData(result)
-        } catch (error) {
-            console.error(error)
+    const [data, setData] = useState({})
+   const getDataById = async  (id) => {
+     const response = await fetch(`http://localhost:5000/books/${id}`, {
+        method : 'GET'
+    })
+    const result = await response.json();
+    setData(result.data)
+   }
+    return {getDataById, data}
+}
+
+export const useUpdateData = () => {
+    const navigate = useNavigate()
+    const updateData = async (data, id) => {
+        const response  = await fetch(`http://localhost:5000/books/${id}`, {
+            method: 'PUT',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify(data)
+        })
+        const result = await response.json()
+        if (result) {
+            navigate('/')
         }
     }
-    return {getDataById, data}
+
+    return {updateData}
 }
