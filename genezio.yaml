@@ -1,0 +1,29 @@
+backend:
+    functions:
+        - entry: index.mjs
+          handler: handler
+          name: function-express
+          path: .
+          type: httpServer
+    language:
+        name: js
+    path: ./backend/
+    scripts:
+        deploy:
+            - npm install
+        local:
+            - npm install
+frontend:
+    environment:
+        VITE_API_URL_SERVERLESS: ${{ backend.functions.serverless.url }}
+    path: frontend
+    publish: dist
+    scripts:
+        build:
+            - npm run build
+        deploy:
+            - npm install
+    subdomain: bsms
+name: bsms
+region: us-east-1
+yamlVersion: 2
