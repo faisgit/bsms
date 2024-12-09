@@ -110,8 +110,8 @@ app.get("/books/:id", async (req, res) => {
     console.eeor(`Error in fetching book : ${error.message}`);
   }
 })
-
-app.listen(5000, () => {
+const port = process.env.PORT || 4000
+app.listen(port, () => {
   connectDB();
   console.log("Server Started at : http://localhost:5000");
 });
