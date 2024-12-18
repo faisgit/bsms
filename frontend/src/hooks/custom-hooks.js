@@ -5,7 +5,7 @@ export const useGetAllData = () => {
     const [data, setData] = useState([])
    
     const fetchData =  async () => {
-     const response =  await fetch('http://localhost:5000/books',{method : 'GET'})
+     const response =  await fetch('https://a22bf031-c9d4-467e-b611-876d8e73ff8a.us-east-1.cloud.genez.io/books',{method : 'GET'})
      const result =  await response.json()
      setData(result.data)
     }
@@ -21,7 +21,7 @@ const navigate = useNavigate()
         if (!confirmDelete) return
 
         try {
-            const response = await fetch(`http://localhost:5000/books/${id}`, {
+            const response = await fetch(`https://a22bf031-c9d4-467e-b611-876d8e73ff8a.us-east-1.cloud.genez.io/books/${id}`, {
                 method : "DELETE"
             })
             const result = await response.json()
@@ -42,7 +42,7 @@ export const useAddData = () => {
     const navigate = useNavigate()
     const addData = async (data) => {
         
-        const response = await fetch('http://localhost:5000/books',{
+        const response = await fetch('https://a22bf031-c9d4-467e-b611-876d8e73ff8a.us-east-1.cloud.genez.io/books',{
             method : "POST",
             headers: {
                 'Accept' : 'application/json',
@@ -62,7 +62,7 @@ export const useAddData = () => {
 export const useGetDataById = () => {
     const [data, setData] = useState({})
    const getDataById = async  (id) => {
-     const response = await fetch(`http://localhost:5000/books/${id}`, {
+     const response = await fetch(`https://a22bf031-c9d4-467e-b611-876d8e73ff8a.us-east-1.cloud.genez.io/books/${id}`, {
         method : 'GET'
     })
     const result = await response.json();
@@ -74,7 +74,7 @@ export const useGetDataById = () => {
 export const useUpdateData = () => {
     const navigate = useNavigate()
     const updateData = async (data, id) => {
-        const response  = await fetch(`http://localhost:5000/books/${id}`, {
+        const response  = await fetch(`https://a22bf031-c9d4-467e-b611-876d8e73ff8a.us-east-1.cloud.genez.io/books/${id}`, {
             method: 'PUT',
             headers : {
                 'Content-Type' : 'application/json'

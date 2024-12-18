@@ -31,7 +31,7 @@ function Table({ data }) {
                 <th>{id}</th>
                 <td>{data.name}</td>
                 <td>{data.author}</td>
-                <td>{data.price}</td>
+                <td>{data.price} ₹</td>
                 <td className="flex gap-2">
                   <button onClick={() => handleClick(data._id)} className="hover">Delete</button>
                     |  
